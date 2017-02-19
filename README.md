@@ -1,4 +1,4 @@
-.checkout
+SymfonyJsonApi
 =========
 
-A Symfony project created on February 9, 2017, 5:38 am.
+A sample of code to build an Api with Symfony including unit testing, links, token identification, etc.
