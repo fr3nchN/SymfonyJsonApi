@@ -1,0 +1,20 @@
+services:
+    pilotabai_competition_db.api_exception_subscriber:
+        class: Pilotabai\CompetitionDbBundle\EventListener\ApiExceptionSubscriber
+        arguments: ['%kernel.debug%', '@api.response_factory']
+        tags:
+            - { name: kernel.event_subscriber }
+    pilotabai_competition_db.pagination_factory:
+        class: Pilotabai\CompetitionDbBundle\Pagination\PaginationFactory
+        arguments: ['@router']
+    pilotabai_competition_db.link_serialization_subscriber:
+        class: Pilotabai\CompetitionDbBundle\Serializer\LinkSerializationSubscriber
+        arguments: ['@router', '@annotation_reader']
+        tags:
+            - { name: jms_serializer.event_subscriber }
+    jwt_token_authenticator:
+        class: Pilotabai\CompetitionDbBundle\Security\JwtTokenAuthenticator
+        arguments: ['@lexik_jwt_authentication.encoder', '@doctrine.orm.entity_manager', '@logger', '@api.response_factory']
+    api.response_factory:
+        class: Pilotabai\CompetitionDbBundle\Api\ResponseFactory
+        arguments: []

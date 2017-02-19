@@ -1,2 +1,4 @@
-# SymfonyJsonApi
-A sample code to build a Json Api with Symfony
+.checkout
+=========
+
+A Symfony project created on February 9, 2017, 5:38 am.
